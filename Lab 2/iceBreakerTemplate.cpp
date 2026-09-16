@@ -4,8 +4,12 @@
  * TO DO: 
  * Add <vector>, <cstdlib>, and <ctime>​
  */
-
+#include <vector>
+#include <cstdlib>
+#include <ctime>
+#include <random>
 using namespace std;
+
 
 /**
  * TO DO: 
@@ -18,8 +22,12 @@ using namespace std;
 
 
 //------------------------PROTOTYPE-------------------------------------------
-void promptFile(vector<string> &); 
-void printVec(vector<string>);
+
+void promptFile(vector<string> & v); 
+void printVec(const vector<string> & v);
+bool readFile (string filename, vector<string> & vec);
+bool writeFile(string filename, const vector<string> & v0, const vector<string> & v1); 
+int ranGen(int questionCount);
 
 /**
  * @brief randomly returns a number from 0 to 5.
@@ -34,9 +42,15 @@ void printVec(vector<string>);
  * 
  * @return int: index of question
  */
-int ranGen(){
-    int randomNumber = rand() % 6;  // 0 through 5
+
+int ranGen(int questionCount){
+    if (questionCount == 0) {
+        return 0;
+    }
+
+    int randomNumber = rand() % questionCount;  // 0 through questionCount-1
     return randomNumber;
+
 }
 
 /**
@@ -49,14 +63,14 @@ int ranGen(){
  * ​​​Return a bool instead in order to indicate whether the operation
  * succeeded or not
  */
-void readFile(string filename, vector<string> & vec) {
+bool readFile(string filename, vector<string> & vec) {
 
    ifstream inputFile(filename);
 
     //error handling
     if (!inputFile.is_open()) {
         cerr << "Error: Could not open file\n";
-        return;
+        return false; 
     }
 
     string line;
@@ -66,7 +80,7 @@ void readFile(string filename, vector<string> & vec) {
     }
 
     inputFile.close();
-    return;
+    return true;
 }
 /**
  * @brief writes to filename with the first column from v0, second column from v1
@@ -88,37 +102,50 @@ void readFile(string filename, vector<string> & vec) {
  * -  pass by value (e.g. vector<string> v0),
  * -  pass by const reference (e.g. const vector<string> & v0),
  */
-void writeFile(string filename, vector<string> v0, vector<string> v1){
+bool writeFile(string filename, const vector<string> & v0, const vector<string> & v1){
 
     ofstream outputFile(filename);
+    
      if (!outputFile) {
-        cout << "Error: Could not create data.csv" << endl;
+        cout << "Error: Could not create " << filename << endl;
+        return false;
     }
 
     // write under the structure:
     // Student_Name, Question_#
     for(int i = 0; i < v0.size(); i++){
-        outputFile << v0[i] << "," << v1[ranGen()] << endl;
+        outputFile << v0[i] << "," << v1[ranGen(v1.size())] << endl;
     }
     outputFile.close();
+    return true;
 
 }
 
 
 int main()
 {
-    srand(time(nullptr));
+    
     vector<string> roster;
     vector<string> qBank;
-    readFile("2310_F26_Rosters.csv", roster);
-    readFile("Questions.csv", qBank);
+    if (!readFile("2310_F26_Rosters.csv", roster)) {
+        cerr << "Error reading roster file." << endl;
+        return 1;
+    }
+    if (!readFile("Questions.csv", qBank)) {
+        cerr << "Error reading questions file." << endl;
+        return 1;
+    }
+
     // printVec(roster);
     // printVec(qBank);
 
     // cout << "Size of roster: " << roster.size() << endl; 
     // cout << "Size of qBank: " << qBank.size() << endl;
 
-    writeFile("Student_question_bank.csv",roster, qBank);
+    if (writeFile("Student_question_bank.csv", roster, qBank)) {
+        cerr << "Error writing output file." << endl;
+        return 1;
+    }
 
 }
 
