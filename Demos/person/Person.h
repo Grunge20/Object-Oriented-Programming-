@@ -1,22 +1,20 @@
-
-#ifndef PERSON_H; 
-#define PERSON_H; 
+//Person.h
+#ifndef PERSON_H
+#define PERSON_H 
 #include <string>
 using namespace std; 
-
 
 class Person{ 
     public:
         //constructor+destructors
         Person(); 
-        Person(string name, int age, string occupation, bool livesinIE);
+        Person(string name, int age, string occupation, bool IE);
         //~person(); 
 
         //mutator functions 
         void updateName(string new_name); 
         void updateAge(int new_age); 
         void updateOccupation(string new_occupation); 
-        void updateLivesinIE(bool new_livesinIE);
         void moveLocation(); 
 
         //accessor functions 
@@ -33,5 +31,5 @@ class Person{
         int age; 
         string occupation;
         bool livesInIE;
-}
+};
 #endif

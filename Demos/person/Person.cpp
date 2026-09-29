@@ -1,21 +1,22 @@
 //Person.cpp 
 #include "Person.h"
+
 Person::Person(){
     name=""; 
     age=-1; 
     occupation="";
     livesInIE=false;
-
 }
 
-Person::Person(string name, int age, string occupation, bool livesinIE){
+Person::Person(string name, int age, string occupation, bool IE){
     this->name=name; 
     this->age=age;
     this->occupation=occupation;
-    livesInIE=IE; 
+    livesInIE=IE;
+    //private var = argument 
 }
 //updates name to new_name 
-void person ::updatenName(string new_name){
+void Person::updateName(string new_name){
     name = new_name; 
 }
 
@@ -46,14 +47,20 @@ bool Person::getLivesinIE() const{
     return livesInIE; 
 }
 
-//**
- * @brief 
+/**
+ * @brief  return true if our person is older than "a"
  * 
- * @param a
+ * @param a 
  * @return true 
  * @return false 
  */
 
+
  bool Person::isOlderThan(Person a) const{
-    
+    if (age> a.getAge()){
+        return true;
+    }else{
+        return false;
+    }
+    //return age >a.getage(): 
  }
