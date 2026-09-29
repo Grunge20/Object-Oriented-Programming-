@@ -26,6 +26,10 @@ int main()
     printStats(&unknown);
 
     bool bobIsOlder = bob.isOlderThan(unknown);
-    
+    if (bobIsOlder){
+        printf("%s is older ", bob.getName().c_str());
+    } else {
+        printf("%s is older", unknown.getName().c_str());
+    }
     return 0;
 }
