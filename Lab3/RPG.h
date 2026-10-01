@@ -16,7 +16,11 @@ class RPG{
         bool isAlive() const; 
         void setHitsTaken(int new_hits);
         //accessors 
-         string getName() const; 
+         string getName() const;
+         int getHitsTaken() const; 
+         float getLuck() const; 
+         float getEXP() const; 
+         int getLevel() const; 
          //I COMPLETE THE REST
 
 
