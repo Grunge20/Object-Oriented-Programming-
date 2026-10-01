@@ -8,22 +8,20 @@ const int MAX_HITS_TAKEN = 3;
 
 class RPG{
     public: 
-    //constructors 
-    RPG();
-    RPG(string name, int hits_taken, float luck, float exp, int level);
+        //constructors 
+        RPG();
+        RPG(string name, int hits_taken, float luck, float exp, int level);
     
-    //mutators 
-    bool isAlive() const; 
-    void setHitsTaken(int new_hits);
-
-    //accessors 
-    string getName() const; 
-    
-    //I COMPLETE THE REST
+        //mutators 
+        bool isAlive() const; 
+        void setHitsTaken(int new_hits);
+        //accessors 
+         string getName() const; 
+         //I COMPLETE THE REST
 
 
     private: 
-    string name; 
-    //complete the rest
+        string name; 
+        //complete the rest
 };
 #endif
