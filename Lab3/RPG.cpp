@@ -19,6 +19,27 @@ RPG::RPG(string name, int hits_taken, float luck,float exp, int level){
 
 }
 
+
+
+string RPG::getName() const{
+    return name;
+}
+
+int RPG::getHitsTaken() const{
+    return hits_taken; 
+}
+float RPG::getLuck() const{
+    return luck;
+}
+
+float RPG::getEXP() const{
+    return exp;
+}
+
+int RPG::getLevel() const{
+    return level; 
+}
+
 //Implement setHitsTaken(int new_hits) briefing
 /**
  * @brief sets hits_taken to new_hits
