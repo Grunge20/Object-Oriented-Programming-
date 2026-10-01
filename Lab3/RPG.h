@@ -16,6 +16,7 @@ class RPG{
         //mutators 
         bool isAlive() const; 
         void setHitsTaken(int new_hits);
+        
         //accessors 
          string getName() const;
          int getHitsTaken() const; 

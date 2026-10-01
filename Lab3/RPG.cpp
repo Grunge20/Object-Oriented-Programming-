@@ -15,8 +15,6 @@ RPG::RPG(string name, int hits_taken, float luck,float exp, int level){
     this->luck=luck;
     this->exp = exp; 
     this->level = level; 
-
-
 }
 
 
@@ -47,6 +45,11 @@ int RPG::getLevel() const{
  */
 
 
+ //updates our hits taken into the new_hits taken
+ void RPG::setHitsTaken(int new_hits){
+    hits_taken = new_hits;
+ }
+
 //Implement isAlive() briefing
  /**
   * @brief returns whether hits_taken is less than MAX_HITS_Taken
@@ -55,3 +58,7 @@ int RPG::getLevel() const{
   * @return true: player is alive
   * @return false: player is unalive 
   */
+
+  bool RPG::isAlive() const{
+    return hits_taken<MAX_HITS_TAKEN; 
+  }
