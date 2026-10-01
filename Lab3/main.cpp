@@ -21,6 +21,8 @@ int main()
    
     //CALL isAlive() on both p1 and p2 
      cout<<"0 is dead, 1 is alive\n"; 
+     cout<<"p1 is: " <<p1.isAlive()<<endl; 
+     cout<<"p2 is: " <<p2.isAlive()<<endl; 
    
 
     return 0; 
