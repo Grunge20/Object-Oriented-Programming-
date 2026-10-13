@@ -62,3 +62,10 @@ int RPG::getLevel() const{
   bool RPG::isAlive() const{
     return hits_taken<MAX_HITS_TAKEN; 
   }
+
+
+
+
+
+
+  
