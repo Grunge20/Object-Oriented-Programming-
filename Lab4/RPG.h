@@ -36,3 +36,23 @@ class RPG{
 };
 #endif
 
+/*******************Extended Function**************************/
+/** 
+ * @brief updates name
+ *
+ * @param name
+ * 
+ */
+void RPG::setName(string name){
+    
+}
+
+/** 
+* @brief increase RPG's experience by 50
+*        After updating, if RPG's experience is >= 100.0, increase
+*        RPG's level by 1, reset their experience to 0, and increase
+*       their luck by 0.1 
+*/
+void RPG::updateEXPlevel(){
+
+}
