@@ -33,8 +33,6 @@ class RPG{
         float exp;
         int level;
         //complete the rest
-};
-#endif
 
 /*******************Extended Function**************************/
 /** 
@@ -44,7 +42,7 @@ class RPG{
  * 
  */
 void RPG::setName(string name){
-    
+    this -> name = name; 
 }
 
 /** 
@@ -54,6 +52,12 @@ void RPG::setName(string name){
 *       their luck by 0.1 
 */
 void RPG::updateEXPlevel(){
+    exp += 50; 
+    if (exp>=100){
+        level = level+1; 
+        exp = 0; 
+        luck += 0.1; 
+    }
 
 }
 
@@ -91,3 +95,15 @@ void RPG:printStats()
 RPG::~RPG()
 {
 }
+
+
+
+};
+#endif
+
+
+
+
+
+
+
