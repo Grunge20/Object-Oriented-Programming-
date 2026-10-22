@@ -2,6 +2,7 @@
 #ifndef RPG_H
 #define RPG_H
 #include <string>
+#include <random> 
 using namespace std; 
 const int INVETORY_SIZE = 10; 
 const float HIT_FACTOR = 0.05; 
