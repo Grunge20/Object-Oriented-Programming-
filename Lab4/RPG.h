@@ -75,27 +75,35 @@ void RPG::attack(RPG*opponent){
     mt19937 gen(rd()); //seed with random 
     uniform_real_distribution<double> dis(0.0,1.0);
 
-    float random_num = dis(gen); 
+    float rand_num = dis(gen); 
 
     //Create a bool called hit 
     // hit is true if random_num>HIT-FACTOR*opponent's luck 
     //if hit is true, call updateHitsTaken() to increase opponent's hits_taken
+    bool hit = false; 
+    if (rand_num > HIT_FACTOR * (*opponent).getLuck()){
+        hit = true; 
+    }
+    if(hit){ //(hit==true)
+        (*opponent).setHitsTaken((*opponent).getHitsTaken+()); 
+    }
 }
 
 /** 
  * @brief Prints in the format: 
  * "Name: NPC_X Hits Taken: X Luck: 0.X00000 EXP: X0.0000 Level: X Status: Alive or Dead"
  */
-void RPG:printStats()
+void RPG:printStats(){
+
+}
 
 /**
  * @brief Destroy the RPG::RPG object
  * Already completed
  */
 RPG::~RPG()
-{
+{ 
 }
-
 
 
 };
