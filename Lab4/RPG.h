@@ -85,7 +85,7 @@ void RPG::attack(RPG*opponent){
         hit = true; 
     }
     if(hit){ //(hit==true)
-        (*opponent).setHitsTaken((*opponent).getHitsTaken+()); 
+        (*opponent).setHitsTaken((*opponent).getHitsTaken()+1); 
     }
 }
 
@@ -93,8 +93,8 @@ void RPG::attack(RPG*opponent){
  * @brief Prints in the format: 
  * "Name: NPC_X Hits Taken: X Luck: 0.X00000 EXP: X0.0000 Level: X Status: Alive or Dead"
  */
-void RPG:printStats(){
-
+void RPG::printStats(){
+    printf("Name: %s Hits Taken: %i Luck: %f EXP: %f Level: %i Status: ", name.c_str(), hits_taken, luck, exp, level);
 }
 
 /**
@@ -102,9 +102,8 @@ void RPG:printStats(){
  * Already completed
  */
 RPG::~RPG()
-{ 
+{
 }
-
 
 };
 #endif
