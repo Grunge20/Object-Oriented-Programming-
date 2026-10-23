@@ -1,6 +1,7 @@
 //Game.cpp
 #include "Game.h"
 
+
 Game::Game()
 {
 }
@@ -57,4 +58,42 @@ int Game::selectPlayer(){
  */
 void Game::endRound(RPG *winner, RPG * loser, int loserIndex){
     
+}
+
+
+/**
+ * @brief calls selectPlayer() twice to get 2 players at random. If the players are redundant 
+ * make a recursive call to battleRound() and return. 
+ * Run a round of hits across player1 and player 2 until only 1 is alive
+ * Call endRound() to highlight who won and update stats 
+ * 
+ */
+void Game::battleRound()
+{
+    //Call selectPlayer twice and assign the values to playerIndex1 and playerIndex2
+    //if playerIndex1 and playerIndex2 are the same, call battleRound() again and
+    //return within the if-statement 
+    //Create two RPG* called player1 and player2 using players[playerIndex...]
+    //while both players are alive call player1->attack(player2) and vice versa 
+    //outside of the while loop identify which player is alive 
+    //and call endRound with for the correct respective players. 
+    int playInd1 = selectPlayer();
+    int playInd2 = selectPlayer();
+    if(playInd1==playInd2){
+        battleRound();
+        return;
+    }
+    RPG*player1=players[playInd1];
+    RPG*player2=players[playInd2];
+
+    while(player1->isAlive() & player2->isAlive()){
+        player1->attack(player2);
+        if(player2->isAlive()){
+            player2->attack(player1);
+        }
+    }
+    if (player1 ->isAlive()){
+        endRound(player1, player2,playInd2);
+    }else{ //player 2 won
+        endRound(player2,player1,playInd1);
 }
