@@ -52,9 +52,10 @@ class RPG{
  * @param name
  * 
  */
-void RPG::setName(string name){
+void setName(string name){
     this -> name = name; 
 }
+
 
 /** 
 * @brief increase RPG's experience by 50
@@ -62,14 +63,13 @@ void RPG::setName(string name){
 *        RPG's level by 1, reset their experience to 0, and increase
 *       their luck by 0.1 
 */
-void RPG::updateEXPlevel(){
+void updateEXPLevel(){
     exp += 50; 
     if (exp>=100){
         level = level+1; 
         exp = 0; 
         luck += 0.1; 
     }
-
 }
 
 /**
@@ -80,7 +80,7 @@ void RPG::updateEXPlevel(){
  * 
  * @param opponent: RPG* 
  */
-void RPG::attack(RPG*opponent){
+void attack(RPG*opponent){
 
     random_device rd; 
     mt19937 gen(rd()); //seed with random 
@@ -104,7 +104,7 @@ void RPG::attack(RPG*opponent){
  * @brief Prints in the format: 
  * "Name: NPC_X Hits Taken: X Luck: 0.X00000 EXP: X0.0000 Level: X Status: Alive or Dead"
  */
-void RPG::printStats(){
+void printStats(){
     printf("Name: %s Hits Taken: %i Luck: %f EXP: %f Level: %i Status: ", name.c_str(), hits_taken, luck, exp, level);
 }
 
@@ -112,7 +112,7 @@ void RPG::printStats(){
  * @brief Destroy the RPG::RPG object
  * Already completed
  */
-RPG::~RPG()
+~RPG()
 {
 }
 
