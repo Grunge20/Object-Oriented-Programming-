@@ -115,7 +115,7 @@ void Game::gameLoop(){
  * @brief calls printStats on all the players
  * 
  */
-void Game::printFindResults(){
+void Game::printFinalResults(){
     for (int i=0; i<players.size();i++){
         players[i]->printStats(); 
     }
