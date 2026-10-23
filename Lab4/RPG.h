@@ -15,8 +15,16 @@ class RPG{
         RPG(string name, int hits_taken, float luck, float exp, int level);
     
         //mutators 
+        //A little embarassing but I completely forgot to update my RPG.h with the new mutators...
+        //That's why my Game.cpp has been showing errors
+        //There's also more reasons but that helped clear like 3 errors
         bool isAlive() const; 
         void setHitsTaken(int new_hits);
+        void setName(string name);
+        void updateExpLevel(); 
+        void attack(RPG*opponent);
+        void printStats(); 
+        ~RPG(); 
         
         //accessors 
          string getName() const;
@@ -25,6 +33,8 @@ class RPG{
          float getEXP() const; 
          int getLevel() const; 
          //I COMPLETE THE REST
+
+
 
 
     private: 

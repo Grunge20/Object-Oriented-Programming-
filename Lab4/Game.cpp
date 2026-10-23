@@ -114,7 +114,7 @@ void Game::gameLoop(){
  */
 void Game::printFindResults(){
     for (int i=0; i<players.size();i++){
-        players[i]->printStats U; 
+        players[i]->printStats(); 
     }
 }
 
