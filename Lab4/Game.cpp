@@ -22,3 +22,39 @@ void Game::generatePlayers(int n)
         live_players.insert(i); 
     }
 }
+
+/**
+ * @brief Randomly selects a player(via index) from the
+ * set of alive players, live_players
+ * 
+ * @return int: index for vector, players
+ */
+int Game::selectPlayer(){
+    random_device rd; 
+    mt19937 gen(rd()); 
+    uniform_int_distribution<> dist(0,live_players.size()-1); 
+    // Pick random index
+    int randomIndex = dist(gen);
+
+    //Advance iterator to that index
+    set<int>::iterator it = live_players.begin(); 
+    advance (it, randomIndex); 
+
+    int selectedIndex=*it; 
+    return selectedIndex;
+}
+
+/**
+ * @brief Resets winner's hits_taken to 0. 
+ * Removes the loser from the live_players.
+ * Calls updateExpLevel() for the winner 
+ * prints the structure "NPC_X won against NPC_Y"
+ * 
+ * @param winner: pointer to RPG winner 
+ * @param loser pointer to RPG winner 
+ * @param loserIndex : int index of loser, so that it can be removed from
+ *       live_players
+ */
+void Game::endRound(RPG *winner, RPG * loser, int loserIndex){
+    
+}
