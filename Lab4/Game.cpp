@@ -97,3 +97,31 @@ void Game::battleRound()
     }else{ //player 2 won
         endRound(player2,player1,playInd1);
 }
+
+/**
+ * @brief Runs battleRound() until there is only 1 player alive.
+ * Remember that endRound() shirnks the size of live_players
+ * 
+ */
+void Game::gameLoop(){
+    while(live_players.sized()>1){
+        battleRound();
+    }
+}
+/**
+ * @brief calls printStats on all the players
+ * 
+ */
+void Game::printFindResults(){
+    for (int i=0; i<players.size();i++){
+        players[i]->printStats U; 
+    }
+}
+
+/**
+ * @brief Destroy the Game:: Game object
+ * 
+ */
+Game::~Game()
+{
+}
