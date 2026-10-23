@@ -15,7 +15,7 @@ class Game{
         ~Game(); 
         void generatePlayers(int n); 
         int selectPlayer(); 
-        void endRound(RPG*winner, RPG*loser, int loserindex);
+        void endRound(RPG *winner, RPG *loser, int loserindex);
         void battleRound(); 
         void gameLoop(); 
         void printFinalResults(); 

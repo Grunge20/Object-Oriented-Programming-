@@ -96,7 +96,10 @@ void Game::battleRound()
         endRound(player1, player2,playInd2);
     }else{ //player 2 won
         endRound(player2,player1,playInd1);
+    }
 }
+
+
 
 /**
  * @brief Runs battleRound() until there is only 1 player alive.
@@ -104,7 +107,7 @@ void Game::battleRound()
  * 
  */
 void Game::gameLoop(){
-    while(live_players.sized()>1){
+    while(live_players.size()>1){
         battleRound();
     }
 }
