@@ -2,8 +2,10 @@
 #ifndef GAME_H
 #define GAME_H
 #include <string> 
-#include "RPG.h"
+#include<vector>
 #include <set>
+#include "RPG.h"
+
 using namespace std; 
 
 class Game{
