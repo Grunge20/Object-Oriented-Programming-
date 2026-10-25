@@ -2,7 +2,6 @@
 #ifndef RPG_H
 #define RPG_H
 #include <string>
-#include <random> 
 using namespace std; 
 const int INVETORY_SIZE = 10; 
 const float HIT_FACTOR = 0.05; 
@@ -20,11 +19,13 @@ class RPG{
         //There's also more reasons but that helped clear like 3 errors
         bool isAlive() const; 
         void setHitsTaken(int new_hits);
+
+
         void setName(string name);
         void updateExpLevel();
-        void attack(RPG*opponent);
+        void attack(RPG* opponent);
         void printStats(); 
-        ~RPG(); 
+       
        
         
         //accessors 
@@ -35,6 +36,9 @@ class RPG{
          int getLevel() const;
 
          //I COMPLETE THE REST
+
+        
+     RPG(); 
 
 
 

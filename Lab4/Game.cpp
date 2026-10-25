@@ -1,10 +1,15 @@
 //Game.cpp
 #include "Game.h"
+#include <random>
+#include <iterator>
+#include <iostream>
+using namespace std; 
 
 
 Game::Game()
 {
 }
+
 /**
  * @brief crates up to n RPG pointers and updates names 
  * with ordering. Populates live_players from 0 to n-1 as 
@@ -33,7 +38,7 @@ void Game::generatePlayers(int n)
 int Game::selectPlayer(){
     random_device rd; 
     mt19937 gen(rd()); 
-    uniform_int_distribution<> dist(0,live_players.size()-1); 
+    uniform_int_distribution<int> dist(0,live_players.size()-1); 
     // Pick random index
     int randomIndex = dist(gen);
 
@@ -56,7 +61,11 @@ int Game::selectPlayer(){
  * @param loserIndex : int index of loser, so that it can be removed from
  *       live_players
  */
-void Game::endRound(RPG *winner, RPG * loser, int loserIndex){
+void Game::endRound(RPG *winner, RPG *loser, int loserIndex){
+    winner -> setHitsTaken(0);
+    live_players.erase(loserIndex);
+    winner->updateExpLevel();
+    cout<<winner->getName()<<"won against" << loser->getName()<<endl;
     
 }
 
