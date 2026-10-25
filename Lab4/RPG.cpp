@@ -1,6 +1,6 @@
 //Person.cpp
 #include "RPG.h"
-
+#include <random>
 RPG::RPG(){
     name="NPC";
     hits_taken=0;
