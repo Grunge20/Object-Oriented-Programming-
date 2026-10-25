@@ -1,6 +1,8 @@
 //Person.cpp
 #include "RPG.h"
+#include <iostream> 
 #include <random>
+
 RPG::RPG(){
     name="NPC";
     hits_taken=0;
@@ -9,7 +11,8 @@ RPG::RPG(){
     level=1;
 }
 
-RPG::RPG(string name, int hits_taken, float luck,float exp, int level){
+
+RPG::RPG(string name, int hits_taken, float luck, float exp, int level){
     this->name = name; 
     this->hits_taken = hits_taken;
     this->luck=luck;
@@ -43,8 +46,6 @@ int RPG::getLevel() const{
  * @brief sets hits_taken to new_hits
  * 
  */
-
-
  //updates our hits taken into the new_hits taken
  void RPG::setHitsTaken(int new_hits){
     hits_taken = new_hits;
@@ -98,7 +99,7 @@ int RPG::getLevel() const{
      * 
      * @param opponent: RPG* 
      */
-    void RPG::attack(RPG*opponent){
+    void RPG::attack(RPG* opponent){
 
         random_device rd; 
         mt19937 gen(rd()); //seed with random 
@@ -114,7 +115,7 @@ int RPG::getLevel() const{
             hit = true; 
         }
         if(hit){ //(hit==true)
-            (*opponent).setHitsTaken((*opponent).getHitsTaken()+1); 
+            opponent -> setHitsTaken(opponent->getHitsTaken()+1); 
         }
     }
 
@@ -123,7 +124,17 @@ int RPG::getLevel() const{
      * "Name: NPC_X Hits Taken: X Luck: 0.X00000 EXP: X0.0000 Level: X Status: Alive or Dead"
      */
     void RPG::printStats(){
-        printf("Name: %s Hits Taken: %i Luck: %f EXP: %f Level: %i Status: ", name.c_str(), hits_taken, luck, exp, level);
+        cout <<"Name: " << name; cout << " Hits Taken: " << hits_taken; cout<< " Luck: " << luck; cout << " Exp: " << exp; cout << " Level: " << level; 
+
+        if (isAlive())
+        {
+            cout << " Status: Alive"; 
+        }
+        else 
+        {
+            cout << " Status: Dead";
+        }
+        cout << endl; 
     }
 
     /**
