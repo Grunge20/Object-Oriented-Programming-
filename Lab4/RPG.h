@@ -38,7 +38,7 @@ class RPG{
          //I COMPLETE THE REST
 
         
-     RPG(); 
+     ~RPG(); 
 
 
 
