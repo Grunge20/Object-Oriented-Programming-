@@ -95,7 +95,7 @@ void Game::battleRound()
     RPG*player1=players[playInd1];
     RPG*player2=players[playInd2];
 
-    while(player1->isAlive() & player2->isAlive()){
+    while(player1->isAlive() && player2->isAlive()){
         player1->attack(player2);
         if(player2->isAlive()){
             player2->attack(player1);

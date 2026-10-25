@@ -12,13 +12,14 @@ class Game{
     public:
         //constructors
         Game();
-        ~Game(); 
+        
         void generatePlayers(int n); 
         int selectPlayer(); 
         void endRound(RPG *winner, RPG *loser, int loserindex);
         void battleRound(); 
         void gameLoop(); 
         void printFinalResults(); 
+        ~Game(); 
     
     private: 
         vector<RPG*> players; 
