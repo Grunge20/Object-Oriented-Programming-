@@ -21,5 +21,6 @@ class Pokemon{
         int attack;
         int defense;
         vector <string> type;  
+        
 };
 #endif
