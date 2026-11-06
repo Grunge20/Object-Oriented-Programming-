@@ -11,7 +11,7 @@ class Pokemon{
         Pokemon();
         Pokemon(string name, int hp, int att, int def, vector<string> type); 
         //--------Mutator Functions------
-        void speak();
+        virtual void speak();
         virtual void printStats();
         //Accessor Functions 
 
