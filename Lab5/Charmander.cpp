@@ -22,7 +22,7 @@ Charmander::Charmander() : Pokemon() {
  * @param def
  * @param t 
  */
-Charmander::Charmander(string name, int hp, int att, int def, vector<string> s)
+Charmander::Charmander(string name, int hp, int att, int def,vector<string>t, vector<string> s)
  Pokemon(name, hp, att, def, t){
     type = t; 
     skills = s; 
@@ -33,3 +33,19 @@ Charmander::Charmander(string name, int hp, int att, int def, vector<string> s)
   * @brief says what a charmander says 
   * 
   */
+ void Charmander::speak(){
+    cout<<"Charmander-char\n"; 
+ }
+
+ /**
+  * @brief calls printStats from the parent class (Pokemon) and appends the skills used for Charmander
+  * 
+  */
+ void Charmander::printStats(){
+    Pokemon::printStats();
+    cout<<"Skills: "; 
+    for (int i=0; i<skills.size(); i++){
+        cout <<skills[i] <<"\t"; 
+    }
+    cout <<endl; 
+ }
